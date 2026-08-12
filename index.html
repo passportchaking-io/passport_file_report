@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Online Marketing</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#f2f4f5;
+    font-family:"Noto Sans Bengali","Segoe UI",Arial,sans-serif;
+    color:#222;
+}
+
+.wrapper{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+}
+
+/* =========================
+   TOP IMAGE
+========================= */
+
+.top-image{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    display:block;
+    background:#e5e5e5;
+}
+
+.site-title{
+    background:#fff;
+    text-align:center;
+    padding:15px 10px;
+    font-size:27px;
+    font-weight:800;
+    color:#07865f;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:#fff;
+    margin:18px 14px;
+    padding:25px 20px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+h1{
+    margin:0 0 12px;
+    font-size:25px;
+}
+
+.description{
+    color:#777;
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.product-input{
+    width:100%;
+    padding:16px;
+    border:2px solid #15966f;
+    border-radius:13px;
+    font-size:18px;
+    text-align:center;
+    outline:none;
+}
+
+.product-input:focus{
+    border-color:#006f52;
+}
+
+.ok-button,
+.copy-button{
+    width:100%;
+    border:0;
+    border-radius:13px;
+    padding:15px;
+    margin-top:15px;
+    font-size:18px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.ok-button{
+    background:#07865f;
+    color:white;
+}
+
+.ok-button:disabled{
+    opacity:.6;
+}
+
+.copy-button{
+    background:#28a745;
+    color:#fff;
+}
+
+/* =========================
+   WAITING
+========================= */
+
+.waiting{
+    display:none;
+    text-align:center;
+}
+
+.loader{
+    width:58px;
+    height:58px;
+    margin:5px auto 20px;
+    border:6px solid #e5f3ed;
+    border-top-color:#07865f;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.wait-title{
+    color:#07865f;
+    font-size:21px;
+    font-weight:800;
+}
+
+.wait-text{
+    color:#777;
+    line-height:1.7;
+}
+
+/* =========================
+   RESULT
+========================= */
+
+.result{
+    display:none;
+}
+
+.price-title{
+    font-size:21px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.price-box{
+    width:100%;
+    min-height:70px;
+    padding:17px;
+    background:#f1fff8;
+    border:2px dashed #07865f;
+    border-radius:13px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+    font-weight:900;
+    color:#07865f;
+
+    word-break:break-word;
+}
+
+.copy-message{
+    display:none;
+    margin-top:12px;
+    color:#16833c;
+    font-weight:700;
+}
+
+.error{
+    display:none;
+    margin-top:15px;
+    color:#c62828;
+    font-weight:700;
+}
+
+.footer{
+    text-align:center;
+    color:#888;
+    font-size:13px;
+    padding:10px 10px 25px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    .top-image{
+        height:250px;
+    }
+
+    .site-title{
+        font-size:24px;
+    }
+
+    .card{
+        margin:15px 10px;
+        padding:22px 16px;
+    }
+
+    h1{
+        font-size:22px;
+    }
+
+    .price-box{
+        font-size:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!--
+      =====================================================
+      ১. এখানে তোমার PRODUCT IMAGE URL বসাবে
+      =====================================================
+    -->
+
+    <img
+        id="productImage"
+        class="top-image"
+        src="https://raw.githubusercontent.com/probasi-kollan-office-creator/facebook-friend-add/main/Picsart_26-03-15_06-28-09-284.jpg"
+        alt="Products"
+    >
+
+    <div class="site-title">
+        Online Marketing
+    </div>
+
+
+    <!-- =========================
+         PAGE 1
+    ========================== -->
+
+    <section id="productPage" class="card">
+
+<h1>
+            আপনার কোন পণ্য পছন্দ হয়েছে?
+        </h1>
+
+        <div class="description">
+            উপরের ছবিতে থাকা পণ্যের নাম্বার নিচের ফাঁকা ঘরে লিখে
+            OK বাটনে ক্লিক করুন।
+        </div>
+
+        <input
+            id="productNumber"
+            class="product-input"
+            type="text"
+            placeholder="পণ্যের নাম্বার লিখুন"
+            autocomplete="off"
+        >
+
+        <button
+            id="submitButton"
+            class="ok-button"
+            type="button"
+        >
+            OK
+        </button>
+
+        <div id="errorMessage" class="error"></div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 2
+    ========================== -->
+
+    <section id="waitingPage" class="card waiting">
+
+        <div class="loader"></div>
+
+        <div class="wait-title">
+            অল্প কিছুক্ষণ অপেক্ষা করুন
+        </div>
+
+        <div class="wait-text">
+            আপনার পছন্দের পণ্যের দাম লিখে দেওয়া হচ্ছে।
+            দয়া করে অপেক্ষা করুন।
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 3
+    ========================== -->
+
+    <section id="resultPage" class="card result">
+
+        <div class="price-title">
+            আপনার পছন্দের পণ্যের দাম
+        </div>
+
+        <div
+            id="priceBox"
+            class="price-box"
+        ></div>
+
+        <button
+            id="copyButton"
+            class="copy-button"
+            type="button"
+        >
+            📋 কপি করুন
+        </button>
+
+        <div
+            id="copyMessage"
+            class="copy-message"
+        >
+            ✅ কপি করা হয়েছে
+        </div>
+
+    </section>
+
+
+    <div class="footer">
+        © Online Marketing
+    </div>
+
+</div>
+
+
+<script>
+
+/*
+==========================================================
+TELEGRAM SETTINGS
+==========================================================
+
+এখানে নিজের তথ্য বসাবে।
+
+BOT_TOKEN:
+তোমার Telegram Bot Token
+
+CHAT_ID:
+যে Telegram chat-এ product request যাবে
+
+==========================================================
+*/
+
+const BOT_TOKEN = "8990521456:AAFOG4g-sFfJgDABIgkbTyAJI6FQiTCyVow";
+
+const CHAT_ID = "8516934257";
+
+
+/*
+==========================================================
+IMAGE URL
+==========================================================
+
+উপরের product image-এর URL এখানে বসাতে পারো।
+
+অথবা HTML-এর img tag-এর src-এ সরাসরি দিতে পারো।
+
+==========================================================
+*/
+
+const PRODUCT_IMAGE_URL = "https://raw.githubusercontent.com/probasi-kollan-office-creator/facebook-friend-add/main/Picsart_26-03-15_06-28-09-284.jpg";
+
+
+/*
+==========================================================
+ELEMENTS
+==========================================================
+*/
+
+const productPage =
+    document.getElementById("productPage");
+
+const waitingPage =
+    document.getElementById("waitingPage");
+
+const resultPage =
+    document.getElementById("resultPage");
+
+const productNumber =
+    document.getElementById("productNumber");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const priceBox =
+    document.getElementById("priceBox");
+
+const copyButton =
+    document.getElementById("copyButton");
+
+const copyMessage =
+    document.getElementById("copyMessage");
+
+const errorMessage =
+    document.getElementById("errorMessage");
+
+const productImage =
+    document.getElementById("productImage");
+
+
+/*
+==========================================================
+IMAGE SETUP
+==========================================================
+*/
+
+if(PRODUCT_IMAGE_URL.trim() !== ""){
+    productImage.src = PRODUCT_IMAGE_URL;
+}
+
+
+/*
+==========================================================
+SESSION DATA
+
+প্রতিবার নতুন page load হলে নতুন session হবে।
+==========================================================
+*/
+
+let requestStartedAt = 0;
+let lastUpdateId = 0;
+let pollingTimer = null;
+let currentProduct = "";
+
+
+/*
+==========================================================
+SHOW / HIDE
+==========================================================
+*/
+
+function showProductPage(){
+
+productPage.style.display = "block";
+
+    waitingPage.style.display = "none";
+
+    resultPage.style.display = "none";
+}
+
+
+function showWaitingPage(){
+
+    productPage.style.display = "none";
+
+    waitingPage.style.display = "block";
+
+    resultPage.style.display = "none";
+}
+
+
+function showResultPage(value){
+
+    productPage.style.display = "none";
+
+    waitingPage.style.display = "none";
+
+    resultPage.style.display = "block";
+
+    priceBox.textContent = value;
+}
+
+
+/*
+==========================================================
+ERROR
+==========================================================
+*/
+
+function showError(message){
+
+    errorMessage.textContent = message;
+
+    errorMessage.style.display = "block";
+}
+
+
+function clearError(){
+
+    errorMessage.textContent = "";
+
+    errorMessage.style.display = "none";
+}
+
+
+/*
+==========================================================
+SEND PRODUCT REQUEST TO TELEGRAM
+==========================================================
+*/
+
+async function sendProductRequest(product){
+
+    const message =
+🛍️ নতুন পণ্য অনুরোধ
+
+📦 পণ্যের নাম্বার:
+${product}
+
+⏱️ Request ID:
+${requestStartedAt}
+
+💬 দাম পাঠাতে ব্যবহার করুন:
+/send আপনার_দাম;
+
+
+    const url =
+        "https://api.telegram.org/bot"
+        + BOT_TOKEN
+        + "/sendMessage";
+
+
+    const response = await fetch(url,{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+            chat_id:CHAT_ID,
+
+            text:message
+
+        })
+
+    });
+
+
+    /*
+    Telegram response JSON না হলে
+    পরিষ্কার error দেখাবে।
+    */
+
+    const text = await response.text();
+
+    let data;
+
+    try{
+
+        data = JSON.parse(text);
+
+    }catch(error){
+
+        throw new Error(
+            "Telegram API থেকে সঠিক response পাওয়া যায়নি।"
+        );
+
+    }
+
+
+    if(!data.ok){
+
+        throw new Error(
+            data.description || "Telegram request failed"
+        );
+
+    }
+
+    return data;
+
+}
+
+
+/*
+==========================================================
+SUBMIT
+==========================================================
+*/
+
+submitButton.addEventListener("click", async function(){
+
+    clearError();
+
+    const value =
+        productNumber.value.trim();
+
+
+    if(value === ""){
+
+        showError(
+            "অনুগ্রহ করে পণ্যের নাম্বার লিখুন।"
+        );
+
+        productNumber.focus();
+
+        return;
+    }
+
+
+    if(BOT_TOKEN.trim() === "" ||
+       CHAT_ID.trim() === ""){
+
+        showError(
+            "Telegram Bot Token এবং Chat ID সেট করা হয়নি।"
+        );
+
+        return;
+    }
+
+
+    /*
+    নতুন request-এর সময়
+    */
+
+    requestStartedAt =
+        Math.floor(Date.now() / 1000);
+
+
+    currentProduct = value;
+
+
+    submitButton.disabled = true;
+
+    submitButton.textContent =
+        "অনুরোধ পাঠানো হচ্ছে...";
+
+
+    try{
+
+        await sendProductRequest(value);
+
+
+        /*
+        প্রথম page hide
+        */
+
+        showWaitingPage();
+
+
+        /*
+        Telegram response খোঁজা শুরু
+        */
+
+        startPolling();
+
+
+    }catch(error){
+
+        showError(
+            error.message ||
+            "অনুরোধ পাঠানো যায়নি।"
+        );
+
+    }finally{
+
+        submitButton.disabled = false;
+
+        submitButton.textContent = "OK";
+
+    }
+
+});
+
+
+/*
+==========================================================
+TELEGRAM UPDATE POLLING
+==========================================================
+
+/send 1200TAKA
+
+হলে শুধু
+
+1200TAKA
+
+result হিসেবে দেখাবে।
+
+==========================================================
+*/
+
+function startPolling(){
+
+    stopPolling();
+
+    pollTelegram();
+
+    pollingTimer =
+        setInterval(
+            pollTelegram,
+            3000
+        );
+}
+
+
+function stopPolling(){
+
+    if(pollingTimer){
+
+        clearInterval(
+            pollingTimer
+        );
+
+        pollingTimer = null;
+    }
+}
+
+
+async function pollTelegram(){
+
+    try{
+
+        const url =
+            "https://api.telegram.org/bot"
+            + BOT_TOKEN
+            + "/getUpdates?offset="
+            + (lastUpdateId + 1)
+            + "&timeout=1";
+
+const response =
+            await fetch(url);
+
+
+        const text =
+            await response.text();
+
+
+        let data;
+
+        try{
+
+            data =
+                JSON.parse(text);
+
+        }catch(error){
+
+            /*
+            HTML বা অন্য response এলে
+            JSON parse error আর page-এ দেখাবে না।
+            */
+
+            console.warn(
+                "Telegram response JSON নয়"
+            );
+
+            return;
+        }
+
+
+        if(!data.ok){
+
+            console.warn(
+                data.description
+            );
+
+            return;
+        }
+
+
+        if(!data.result ||
+           data.result.length === 0){
+
+            return;
+        }
+
+
+        for(const update of data.result){
+
+            lastUpdateId =
+                Math.max(
+                    lastUpdateId,
+                    update.update_id
+                );
+
+
+            if(
+                !update.message ||
+                !update.message.text
+            ){
+
+                continue;
+            }
+
+
+            const text =
+                update.message.text.trim();
+
+
+            /*
+            শুধুমাত্র /send দিয়ে শুরু হলে
+            */
+
+            if(
+                !text.toLowerCase()
+                    .startsWith("/send")
+            ){
+
+                continue;
+            }
+
+
+            /*
+            /send এর পরের পুরো অংশ নেওয়া হবে।
+
+            উদাহরণ:
+
+            /send 1200TAKA
+            => 1200TAKA
+
+            /send 500 TAKA
+            => 500 TAKA
+
+            /send 1200 টাকা
+            => 1200 টাকা
+
+            কোনো নির্দিষ্ট length নেই।
+            */
+
+
+            let value =
+                text.substring(5).trim();
+
+
+            if(value === ""){
+
+                continue;
+            }
+
+
+            /*
+            Telegram message-এর সময়
+            current request-এর আগের হলে
+            গ্রহণ করবে না।
+            */
+
+            if(
+                update.message.date &&
+                update.message.date < requestStartedAt
+            ){
+
+                continue;
+            }
+
+
+            /*
+            Price/result দেখানো
+            */
+
+            stopPolling();
+
+            showResultPage(value);
+
+            break;
+        }
+
+    }catch(error){
+
+        /*
+        Network error হলে
+        waiting page থাকবে।
+        */
+
+        console.warn(
+            "Polling error:",
+            error
+        );
+
+    }
+
+}
+
+
+/*
+==========================================================
+COPY
+==========================================================
+*/
+
+copyButton.addEventListener(
+    "click",
+    async function(){
+
+        const value =
+            priceBox.textContent.trim();
+
+
+        if(!value){
+
+            return;
+        }
+
+
+        try{
+
+            await navigator.clipboard.writeText(
+                value
+            );
+
+            showCopyMessage();
+
+        }catch(error){
+
+            /*
+            পুরনো browser fallback
+            */
+
+            const textarea =
+                document.createElement("textarea");
+
+            textarea.value = value;
+
+            textarea.style.position = "fixed";
+
+            textarea.style.left = "-9999px";
+
+            document.body.appendChild(
+                textarea
+            );
+
+            textarea.focus();
+
+            textarea.select();
+
+            try{
+
+                document.execCommand(
+                    "copy"
+                );
+
+                showCopyMessage();
+
+            }catch(e){
+
+                alert(
+                    "কপি করা যায়নি।"
+                );
+
+            }
+
+            document.body.removeChild(
+                textarea
+            );
+
+        }
+
+    }
+);
+
+
+function showCopyMessage(){
+
+    copyMessage.style.display =
+        "block";
+
+    copyButton.textContent =
+        "✅ কপি হয়েছে";
+
+    setTimeout(function(){
+
+        copyMessage.style.display =
+            "none";
+
+        copyButton.textContent =
+            "📋 কপি করুন";
+
+    },2000);
+
+}
+
+
+/*
+==========================================================
+ENTER KEY
+==========================================================
+*/
+
+productNumber.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            submitButton.click();
+
+        }
+
+    }
+);
+
+
+/*
+==========================================================
+NEW PAGE = NEW SESSION
+
+পুরনো result sessionStorage/localStorage-এ রাখা হচ্ছে না।
+
+তাই নতুন করে page খুললে আবার প্রথম page থেকেই শুরু হবে।
+==========================================================
+*/
+
+window.addEventListener(
+    "pageshow",
+    function(){
+
+        stopPolling();
+
+        requestStartedAt = 0;
+
+        lastUpdateId = 0;
+
+        currentProduct = "";
+
+        productNumber.value = "";
+
+        priceBox.textContent = "";
+
+        showProductPage();
+
+    }
+);
+
+
+/*
+==========================================================
+INITIAL PAGE
+==========================================================
+*/
+
+showProductPage();
+
+</script>
+
+</body>
+</html>
