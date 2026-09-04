@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Online Marketing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- PRODUCT IMAGE -->
+    <img
+        id="productImage"
+        class="top-image"
+        src="https://raw.githubusercontent.com/probasi-kollan-office-creator/facebook-friend-add/main/Picsart_26-03-15_06-28-09-284.jpg"
+        alt="Products"
+    >
+
+    <div class="site-title">
+        Online Marketing
+    </div>
+
+    <!-- PAGE 1 -->
+    <section id="productPage" class="card">
+        <h1>আপনার কোন পণ্য পছন্দ হয়েছে?</h1>
+        <div class="description">
+            উপরের ছবিতে থাকা পণ্যের নাম্বার নিচের ফাঁকা ঘরে লিখে OK বাটনে ক্লিক করুন।
+        </div>
+        <input
+            id="productNumber"
+            class="product-input"
+            type="text"
+            placeholder="পণ্যের নাম্বার লিখুন"
+            autocomplete="off"
+        >
+        <button
+            id="submitButton"
+            class="ok-button"
+            type="button"
+        >
+            OK
+        </button>
+        <div id="errorMessage" class="error"></div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section id="waitingPage" class="card waiting">
+        <div class="loader"></div>
+        <div class="wait-title">
+            অল্প কিছুক্ষণ অপেক্ষা করুন
+        </div>
+        <div class="wait-text">
+            আপনার পছন্দের পণ্যের দাম লিখে দেওয়া হচ্ছে। দয়া করে অপেক্ষা করুন।
+        </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section id="resultPage" class="card result">
+        <div class="price-title">
+            আপনার পছন্দের পণ্যের দাম
+        </div>
+        <div
+            id="priceBox"
+            class="price-box"
+        ></div>
+        <button
+            id="copyButton"
+            class="copy-button"
+            type="button"
+        >
+            📋 কপি করুন
+        </button>
+        <div
+            id="copyMessage"
+            class="copy-message"
+        >
+            ✅ কপি করা হয়েছে
+        </div>
+    </section>
+
+    <div class="footer">
+        © Online Marketing
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
